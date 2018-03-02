@@ -1,0 +1,149 @@
+/*main*/
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif ;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+}
+
+.progressApp {
+    width: 558px;
+    height: 310px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/*progress bar*/
+
+.progress {
+    transform: rotate(-90deg);
+}
+
+.progress__value {
+    transition: stroke-dashoffset 1s linear;
+}
+
+/*flex*/
+
+.flexContainer {
+    display: flex;
+    height: 200px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.controlPanel {
+    margin-left: 15px;
+}
+
+/* контроллер */
+
+.controlPanel__switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 20px;
+    outline: none;
+}
+
+.controlPanel__value {
+    width: 38px;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+.controlPanel__switch input {
+    display: none;
+}
+
+.controlPanel__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4c4c4c;
+    -webkit-transition: .4s;
+    transition: .4s;
+    outline: none;
+    border-radius: 34px;
+}
+
+.controlPanel__slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .controlPanel__slider {
+    background-color: #77eb10;
+}
+
+input:focus + .controlPanel__slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .controlPanel__slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+.switchLabel {
+    position: absolute;
+    left: 45px;
+}
+
+
+/*animation*/
+
+@keyframes test {
+    from {transform: rotate(-90deg);}
+    to {transform: rotate(270deg);}
+}
+
+.animation {
+    animation-name: test;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/*media*/
+
+@media all and (orientation: portrait){
+    .progressApp {
+        width: 310px;
+        height: 550px;
+    }
+
+    .flexContainer {
+        flex-direction: column;
+        height: 350px;
+        width: 300px;
+    }
+
+    .controlPanel {
+        margin-top: 15px;
+    }
+}
+
+

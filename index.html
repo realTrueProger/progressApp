@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Тестовое задание для Яндекс</title>
+    <link rel="stylesheet" href="css/new.css">
+</head>
+<body>
+
+<div class="progressApp">
+    <h1>Progress</h1>
+    <div class="flexContainer">
+
+        <!--Создаём 2 svg окружности с жёлтой и серой границами длиной 339.292-->
+
+        <div class="svgContainer">
+
+            <svg class="progress" width="120" height="120">
+                <circle cx="60" cy="60" r="54" fill="none" stroke="lightgray" stroke-width="6"></circle>
+                <circle class="progress__value" cx="60" cy="60" r="54" fill="none" stroke="#ffd633" stroke-width="6"
+                        stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+            </svg>
+        </div>
+
+        <!--Элементы управления-->
+
+        <div class="controlPanel">
+            <label>
+                <input class="controlPanel__value" id="valueControl" type="text" value="0"> Value (0-100)
+            </label><br>
+            <label class="controlPanel__switch">
+                <input id="animateControl" type="checkbox">
+                <span class="controlPanel__slider"></span><span class="switchLabel">Animate</span>
+            </label><br>
+            <label class="controlPanel__switch">
+                <input id="hideControl" type="checkbox">
+                <span class="controlPanel__slider"></span><span class="switchLabel">Hide</span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

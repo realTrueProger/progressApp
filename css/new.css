@@ -24,20 +24,33 @@ h1 {
 /*progress bar*/
 
 .progress {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
 
 .progress__value {
+    -webkit-transition: stroke-dashoffset 1s linear;
+    -o-transition: stroke-dashoffset 1s linear;
     transition: stroke-dashoffset 1s linear;
 }
 
 /*flex*/
 
 .flexContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 200px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -77,6 +90,7 @@ h1 {
     bottom: 0;
     background-color: #4c4c4c;
     -webkit-transition: .4s;
+    -o-transition: .4s;
     transition: .4s;
     outline: none;
     border-radius: 34px;
@@ -89,6 +103,7 @@ h1 {
     width: 20px;
     background-color: white;
     -webkit-transition: .4s;
+    -o-transition: .4s;
     transition: .4s;
     border-radius: 50%;
 }
@@ -98,6 +113,7 @@ input:checked + .controlPanel__slider {
 }
 
 input:focus + .controlPanel__slider {
+    -webkit-box-shadow: 0 0 1px #2196F3;
     box-shadow: 0 0 1px #2196F3;
 }
 
@@ -115,15 +131,24 @@ input:checked + .controlPanel__slider:before {
 
 /*animation*/
 
+@-webkit-keyframes test {
+    from {-webkit-transform: rotate(-90deg);transform: rotate(-90deg);}
+    to {-webkit-transform: rotate(270deg);transform: rotate(270deg);}
+}
+
 @keyframes test {
-    from {transform: rotate(-90deg);}
-    to {transform: rotate(270deg);}
+    from {-webkit-transform: rotate(-90deg);transform: rotate(-90deg);}
+    to {-webkit-transform: rotate(270deg);transform: rotate(270deg);}
 }
 
 .animation {
+    -webkit-animation-name: test;
     animation-name: test;
+    -webkit-animation-duration: 3s;
     animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
 }
 
@@ -136,6 +161,9 @@ input:checked + .controlPanel__slider:before {
     }
 
     .flexContainer {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         height: 350px;
         width: 300px;
@@ -145,5 +173,3 @@ input:checked + .controlPanel__slider:before {
         margin-top: 15px;
     }
 }
-
-

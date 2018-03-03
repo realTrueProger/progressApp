@@ -1,20 +1,49 @@
 ////////////////////////////////////////////////////////////////////////
 // progress bar app
 
-const RADIUS = 54;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS; // длина окружности
+class Progress {
+    constructor() {
+        this._value = 0;
+        this._radius = 54;
+        this._circumference = 2 * Math.PI * this._radius; // длина окружности
+        this.progressValue = document.querySelector('.progressBar__value');
+        this.progress = document.querySelector('.progressBar__progress');
+        this.progressBar = document.querySelector('.progressBar');
+    }
+
+    setValue(value) {
+        this._value = value;
+        this.render();
+    }
+
+    render() {
+        this.progressValue.style.strokeDashoffset = this._circumference * (1 - this._value/100);
+    }
+
+    setMod(mode, state) {
+        if(mode === 'animated' && state === 'yes') {
+            this.progress.classList.add('animation');
+        }
+        if(mode === 'animated' && state === '') {
+            this.progress.classList.remove('animation');
+        }
+        if(mode === 'hidden' && state === 'yes') {
+            this.progressBar.classList.add('hidden');
+        }
+        if(mode === 'hidden' && state === '') {
+            this.progressBar.classList.remove('hidden');
+        }
+    }
+}
+
+let progress = new Progress();
+
+// controller
+
 let control = document.getElementById('valueControl');
 let animateControl = document.getElementById('animateControl');
 let hideControl = document.getElementById('hideControl');
-let progressValue = document.querySelector('.progressBar__value');
 let lastValue = 0;
-
-// меняем progress bar
-
-function progress(value) {
-    let progress = value / 100;
-    progressValue.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
-}
 
 // value controller
 
@@ -26,20 +55,30 @@ control.addEventListener('input', (e) => {
         }
         e.target.value = e.target.value.trim();
         lastValue = e.target.value;
-        progress(event.target.value);
+        progress.setValue(event.target.value);
     } else {
         event.target.value = lastValue;
     }
 });
 
-animateControl.addEventListener('click', (e) => {
-    document.querySelector('.progressBar__progress').classList.toggle('animation');
+// animate button
+
+animateControl.addEventListener('change', (e) => {
+    if(e.target.checked){
+        progress.setMod('animated', 'yes');
+    } else {
+        progress.setMod('animated', '');
+    }
 });
 
 // hide button
 
-hideControl.addEventListener('click', (e) => {
-   document.querySelector('.progressBar').classList.toggle('hidden');
+hideControl.addEventListener('change', (e) => {
+    if(e.target.checked){
+        progress.setMod('hidden', 'yes');
+    } else {
+        progress.setMod('hidden', '');
+    }
 });
 
 

@@ -23,13 +23,13 @@ h1 {
 
 /*progress bar*/
 
-.progress {
+.progressBar__progress {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
 
-.progress__value {
+.progressBar__value {
     -webkit-transition: stroke-dashoffset 1s linear;
     -o-transition: stroke-dashoffset 1s linear;
     transition: stroke-dashoffset 1s linear;
@@ -37,7 +37,7 @@ h1 {
 
 /*flex*/
 
-.flexContainer {
+.progressApp__flexContainer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -123,7 +123,7 @@ input:checked + .controlPanel__slider:before {
     transform: translateX(20px);
 }
 
-.switchLabel {
+.controlPanel__switchLabel {
     position: absolute;
     left: 45px;
 }
@@ -160,7 +160,7 @@ input:checked + .controlPanel__slider:before {
         height: 550px;
     }
 
-    .flexContainer {
+    .progressApp__flexContainer {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;

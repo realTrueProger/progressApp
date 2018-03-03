@@ -6,7 +6,7 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS; // длина окружности
 let control = document.getElementById('valueControl');
 let animateControl = document.getElementById('animateControl');
 let hideControl = document.getElementById('hideControl');
-let progressValue = document.querySelector('.progress__value');
+let progressValue = document.querySelector('.progressBar__value');
 let lastValue = 0;
 
 // меняем progress bar
@@ -33,13 +33,13 @@ control.addEventListener('input', (e) => {
 });
 
 animateControl.addEventListener('click', (e) => {
-    document.querySelector('.progress').classList.toggle('animation');
+    document.querySelector('.progressBar__progress').classList.toggle('animation');
 });
 
 // hide button
 
 hideControl.addEventListener('click', (e) => {
-   document.querySelector('.svgContainer').classList.toggle('hidden');
+   document.querySelector('.progressBar').classList.toggle('hidden');
 });
 
 

@@ -1,7 +1,16 @@
-////////////////////////////////////////////////////////////////////////
-// progress bar
+/**
+ *  Progress bar by
+ *  @author Владимир Соловьёв aka realTrueProger
+ *  https://github.com/realTrueProger/
+ */
+
 
 class Progress {
+    /**
+     * конструктор класса progress
+     *
+     * @param  element - html элемент для рендера
+     */
     constructor(element) {
         this._value = 0;
         this._radius = 54;
@@ -12,6 +21,9 @@ class Progress {
         this.progress = document.querySelector('.progress-bar__circles');
     }
 
+    /**
+     * Рендер элемента на странице. Создаёт 2 svg окружности с жёлтой и серой границами
+     */
     renderElement() {
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.classList.add('progress-bar__circles');
@@ -27,6 +39,17 @@ class Progress {
         this._container.appendChild(svg);
     }
 
+    /**
+     * создаём svg circle
+     *
+     * @param {number} cx - x координата
+     * @param {number} cy - y координата
+     * @param {string} fill - цвет заливки
+     * @param {string} stroke - цвет обводки
+     * @param {number} strokeWidth - ширина обводки
+     * @returns {Element} новый svg элемент circle
+     * @private
+     */
     _createCircle(cx, cy, fill, stroke, strokeWidth) {
         let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         circle.setAttribute('cx', cx);
@@ -38,8 +61,13 @@ class Progress {
         return circle;
     }
 
+
+    /**
+     * Задать новое значение прогресса
+     * @param {number} value - число от 0 до 100
+     */
     setValue(value) {
-        if(value >= 0 && value < 101) {
+        if (value >= 0 && value < 101) {
             this._value = value;
             this.renderValue();
         } else {
@@ -47,10 +75,19 @@ class Progress {
         }
     }
 
+    /**
+     * Рендер нового значения
+     */
     renderValue() {
         this.progressValue.style.strokeDashoffset = this._circumference * (1 - this._value / 100);
     }
 
+    /**
+     * Установка режима для блока
+     *
+     * @param mode - режим animated или hidden
+     * @param state - включение отключение режима. Значения yes/''
+     */
     setMod(mode, state) {
         if (mode === 'animated' && state === 'yes') {
             this.progress.classList.add('progress-bar__animation');

@@ -1,0 +1,54 @@
+/*progress bar*/
+
+.progress-bar__circles {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.progress-bar__value {
+    -webkit-transition: stroke-dashoffset 1s linear;
+    -o-transition: stroke-dashoffset 1s linear;
+    transition: stroke-dashoffset 1s linear;
+}
+
+/*animation*/
+
+@-webkit-keyframes test {
+    from {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    to {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+
+@keyframes test {
+    from {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    to {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+
+.progress-bar__animation {
+    -webkit-animation-name: test;
+    animation-name: test;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+/*hidden*/
+
+.progress-bar__hidden {
+    visibility: hidden;
+}

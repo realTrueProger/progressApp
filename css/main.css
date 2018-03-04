@@ -3,7 +3,7 @@
 html, body {
     padding: 0;
     margin: 0;
-    font-family: Arial, sans-serif ;
+    font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -12,32 +12,14 @@ h1 {
     font-size: 1.5em;
 }
 
-.progressApp {
+.progress-app {
     width: 558px;
     height: 310px;
 }
 
-.hidden {
-    visibility: hidden;
-}
-
-/*progress bar*/
-
-.progressBar__progress {
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-}
-
-.progressBar__value {
-    -webkit-transition: stroke-dashoffset 1s linear;
-    -o-transition: stroke-dashoffset 1s linear;
-    transition: stroke-dashoffset 1s linear;
-}
-
 /*flex*/
 
-.progressApp__flexContainer {
+.progress-app__flexContainer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -54,13 +36,13 @@ h1 {
     align-items: center;
 }
 
-.controlPanel {
+.control-panel {
     margin-left: 15px;
 }
 
 /* контроллер */
 
-.controlPanel__switch {
+.control-panel__switch {
     position: relative;
     display: inline-block;
     width: 38px;
@@ -68,7 +50,7 @@ h1 {
     outline: none;
 }
 
-.controlPanel__value {
+.control-panel__value {
     width: 38px;
     border-radius: 20px;
     border: 1px solid black;
@@ -77,11 +59,11 @@ h1 {
     outline: none;
 }
 
-.controlPanel__switch input {
+.control-panel__switch input {
     display: none;
 }
 
-.controlPanel__slider {
+.control-panel__slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -96,7 +78,7 @@ h1 {
     border-radius: 34px;
 }
 
-.controlPanel__slider:before {
+.control-panel__slider:before {
     position: absolute;
     content: "";
     height: 20px;
@@ -108,7 +90,7 @@ h1 {
     border-radius: 50%;
 }
 
-input:checked + .controlPanel__slider {
+input:checked + .control-panel__slider {
     background-color: #77eb10;
 }
 
@@ -117,50 +99,26 @@ input:focus + .controlPanel__slider {
     box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .controlPanel__slider:before {
+input:checked + .control-panel__slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
 }
 
-.controlPanel__switchLabel {
+.control-panel__switchLabel {
     position: absolute;
     left: 45px;
 }
 
-
-/*animation*/
-
-@-webkit-keyframes test {
-    from {-webkit-transform: rotate(-90deg);transform: rotate(-90deg);}
-    to {-webkit-transform: rotate(270deg);transform: rotate(270deg);}
-}
-
-@keyframes test {
-    from {-webkit-transform: rotate(-90deg);transform: rotate(-90deg);}
-    to {-webkit-transform: rotate(270deg);transform: rotate(270deg);}
-}
-
-.animation {
-    -webkit-animation-name: test;
-    animation-name: test;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-}
-
 /*media*/
 
-@media all and (orientation: portrait){
-    .progressApp {
+@media all and (orientation: portrait) {
+    .progress-app {
         width: 310px;
         height: 550px;
     }
 
-    .progressApp__flexContainer {
+    .progress-app__flexContainer {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -169,7 +127,7 @@ input:checked + .controlPanel__slider:before {
         width: 300px;
     }
 
-    .controlPanel {
+    .control-panel {
         margin-top: 15px;
     }
 }

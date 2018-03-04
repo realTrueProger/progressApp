@@ -9,10 +9,11 @@ let lastValue = 0;
 // value controller
 
 control.addEventListener('input', (e) => {
+    let value = e.target.value;
     // валидация формы, убираем все лишние пробелы и нули и букву e
-    if (e.target.value >= 0 && e.target.value < 101 && isNaN(e.target.value) === false && e.target.value !== ' ') {
+    if (value >= 0 && value < 101 && isNaN(value) === false && value !== ' ') {
         if (e.target.value.length > 1) {
-            e.target.value = parseInt(e.target.value);
+            e.target.value = parseInt(value);
         }
         e.target.value = e.target.value.trim();
         lastValue = e.target.value;

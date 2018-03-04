@@ -17,26 +17,25 @@ class Progress {
         svg.classList.add('progress-bar__circles');
         svg.setAttribute('width', '120');
         svg.setAttribute('height', '120');
-        let circle1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        circle1.setAttribute('cx', '60');
-        circle1.setAttribute('cy', '60');
-        circle1.setAttribute('r', this._radius);
-        circle1.setAttribute('fill', 'none');
-        circle1.setAttribute('stroke', 'lightgray');
-        circle1.setAttribute('stroke-width', '6');
-        let circle2 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        let circle1 = this._createCircle(60, 60, 'none', 'lightgray', 6);
+        let circle2 = this._createCircle(60, 60, 'none', '#ffd633', 6);
         circle2.classList.add('progress-bar__value');
-        circle2.setAttribute('cx', '60');
-        circle2.setAttribute('cy', '60');
-        circle2.setAttribute('r', this._radius);
-        circle2.setAttribute('fill', 'none');
-        circle2.setAttribute('stroke', '#ffd633');
-        circle2.setAttribute('stroke-width', '6');
         circle2.setAttribute('stroke-dasharray', this._circumference);
         circle2.setAttribute('stroke-dashoffset', this._circumference);
         svg.appendChild(circle1);
         svg.appendChild(circle2);
         this._container.appendChild(svg);
+    }
+
+    _createCircle(cx, cy, fill, stroke, strokeWidth) {
+        let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', this._radius);
+        circle.setAttribute('fill', fill);
+        circle.setAttribute('stroke', stroke);
+        circle.setAttribute('stroke-width', strokeWidth);
+        return circle;
     }
 
     setValue(value) {

@@ -8,34 +8,25 @@
 </head>
 <body>
 
-<div class="progressApp">
+<div class="progress-app">
     <h1>Progress</h1>
-    <div class="progressApp__flexContainer">
+    <div class="progress-app__flexContainer">
 
-        <!--Создаём 2 svg окружности с жёлтой и серой границами длиной 339.292-->
-
-        <div class="progressBar">
-
-            <svg class="progressBar__progress" width="120" height="120">
-                <circle cx="60" cy="60" r="54" fill="none" stroke="lightgray" stroke-width="6"></circle>
-                <circle class="progressBar__value" cx="60" cy="60" r="54" fill="none" stroke="#ffd633" stroke-width="6"
-                        stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
-            </svg>
-        </div>
+        <!--Подключаем модуль к данному элементу-->
+        <div class="progress-bar"></div>
 
         <!--Элементы управления-->
-
-        <div class="controlPanel">
+        <div class="control-panel">
             <label>
-                <input class="controlPanel__value" id="valueControl" type="text" value="0"> Value (0-100)
+                <input class="control-panel__value" id="valueControl" type="text" value="0"> Value (0-100)
             </label><br>
-            <label class="controlPanel__switch">
+            <label class="control-panel__switch">
                 <input id="animateControl" type="checkbox">
-                <span class="controlPanel__slider"></span><span class="controlPanel__switchLabel">Animate</span>
+                <span class="control-panel__slider"></span><span class="control-panel__switchLabel">Animate</span>
             </label><br>
-            <label class="controlPanel__switch">
+            <label class="control-panel__switch">
                 <input id="hideControl" type="checkbox">
-                <span class="controlPanel__slider"></span><span class="controlPanel__switchLabel">Hide</span>
+                <span class="control-panel__slider"></span><span class="control-panel__switchLabel">Hide</span>
             </label>
         </div>
     </div>

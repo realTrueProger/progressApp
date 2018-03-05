@@ -16,15 +16,16 @@ class Progress {
         this._radius = 54;
         this._circumference = 2 * Math.PI * this._radius; // длина окружности
         this._container = element;
-        this.renderElement();
+        this._renderElement();
         this.progressValue = document.querySelector('.progress-bar__value');
         this.progress = document.querySelector('.progress-bar__circles');
     }
 
     /**
      * Рендер элемента на странице. Создаёт 2 svg окружности с жёлтой и серой границами
+     * @private
      */
-    renderElement() {
+    _renderElement() {
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.classList.add('progress-bar__circles');
         svg.setAttribute('width', '120');
@@ -69,7 +70,7 @@ class Progress {
     setValue(value) {
         if (value >= 0 && value < 101) {
             this._value = value;
-            this.renderValue();
+            this._renderValue();
         } else {
             console.log('invalid value, must be 0 - 100');
         }
@@ -77,8 +78,9 @@ class Progress {
 
     /**
      * Рендер нового значения
+     * @private
      */
-    renderValue() {
+    _renderValue() {
         this.progressValue.style.strokeDashoffset = this._circumference * (1 - this._value / 100);
     }
 
